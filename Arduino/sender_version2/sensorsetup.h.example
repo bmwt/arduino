@@ -1,0 +1,2 @@
+#define nodeNumber 11
+#define ONE_WIRE_BUS 4
