@@ -43,9 +43,13 @@ void displayTemp() {
    display.setTextAlignment(TEXT_ALIGN_LEFT);
    String stringSuffix = " °F";
    String displayString = thermocouple.readFahrenheit() + stringSuffix;
-   Serial.print(displayString);
-   Serial.println(thermocouple.readFahrenheit());
+   display.setFont(ArialMT_Plain_10);
+   display.drawString(0, 0, "Smokeduino 0.1");
+   display.setFont(ArialMT_Plain_16);
+   display.drawString(0, 10, "MEAT");
+   display.setFont(ArialMT_Plain_24);
    display.drawString(0, 26, displayString);
+   Serial.println(displayString);
 }
 
 
