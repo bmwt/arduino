@@ -1,0 +1,111 @@
+
+*** These modified files were found in JOE when it aborted on Sat Sep 30 19:57:46 2017
+*** JOE was aborted because the terminal closed
+
+*** File '(Unnamed)'
+X x 2800 = 
+X x 1140 = 1657
+
+1.453508772 x X = 163
+
+112.143
+
+
+X 16833
+
+
+
+SCALE_FACTOR
+KNOWN_WEIGHT
+RAW_WEIGHT
+
+RAW_WEIGHT % KNOWN_WEIGHT = FACTOR
+
+FACTOR X KNOWN_WEIGHT = RAW_WEIGHT
+
+FACTOR x 163 = RAW_WEIGHT
+11400 x 163 = 
+
+
+
+*** File '(Unnamed)'
+zesty
+west
+machine.Pin
+.value(1)
+.value(0)
+utime.ticks_ms()
+utime.sleep_ms
+
+*** File '(Unnamed)'
+198.128.153.12
+ldap
+ldap
+LDAP_URI
+cant
+Ubuntu
+exe
+sudo
+sec
+ensure auth
+
+*** File '(Unnamed)'
+roles/common/tasks/facts.yml
+roles/common/tasks/facts.yml
+roles/common/tasks/ansible.yml
+opsview.yml
+iptables.j2
+color_server.py
+hx711.py
+hx711.py
+hx711.py
+/home/bmwt/git_bmwt/arduino/.git/COMMIT_EDITMSG
+
+*** File '* Startup Log *'
+Processing '/etc/joe/joerc'...
+Processing '/etc/joe/ftyperc'...
+Finished processing /etc/joe/ftyperc
+Finished processing /etc/joe/joerc
+
+*** These modified files were found in JOE when it aborted on Sat Sep 30 19:57:46 2017
+*** JOE was aborted because the terminal closed
+
+*** File '(Unnamed)'
+zesty
+west
+machine.Pin
+.value(1)
+.value(0)
+utime.ticks_ms()
+utime.sleep_ms
+
+*** File '(Unnamed)'
+198.128.153.12
+ldap
+ldap
+LDAP_URI
+cant
+Ubuntu
+exe
+sudo
+sec
+ensure auth
+
+*** File '(Unnamed)'
+roles/common/tasks/ansible.yml
+opsview.yml
+iptables.j2
+color_server.py
+hx711.py
+hx711.py
+hx711.py
+/home/bmwt/git_bmwt/arduino/.git/COMMIT_EDITMSG
+/home/bmwt/git_bmwt/arduino/.git/COMMIT_EDITMSG
+Arduino/weightduino/weightduino.ino
+HX711.h
+
+*** File '* Startup Log *'
+Processing '/etc/joe/joerc'...
+Processing '/etc/joe/ftyperc'...
+Finished processing /etc/joe/ftyperc
+Finished processing /etc/joe/joerc
