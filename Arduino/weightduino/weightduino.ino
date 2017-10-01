@@ -37,9 +37,8 @@ void setup() {
   Serial.println(scale.get_units(5), 1);  // print the average of 5 readings from the ADC minus tare weight (not set) divided
             // by the SCALE parameter (not set yet)
 
-//  scale.set_scale(2280.f);                      // this value is obtained by calibrating the scale with known weights; see the README for details
-  scale.set_scale(11400.f);                      // this value is obtained by calibrating the scale with known weights; see the README for details
-  // scale.set_scale(0.f);
+  scale.set_scale(11582.f);                      // this value is obtained by calibrating the scale with known weights; see the README for details
+//  scale.set_scale(1.f);  //  use to calibrate.  RAW_WEIGHT % KNOWN_WEIGHT = SCALE_FACTOR
   scale.tare();               // reset the scale to 0
 
   Serial.println("After setting up the scale:");
@@ -73,16 +72,15 @@ void displayWeight(float weight) {
    Serial.println(displayString);
 }
 void loop() {
-  Serial.print("one reading:\t");
-  Serial.print(scale.get_units(), 1);
-  Serial.print("\t| average:\t");
   float weight = scale.get_units(10);
   display.clear();
-  displayWeight(weight);
+  displayWeight(abs(weight));
   display.setTextAlignment(TEXT_ALIGN_RIGHT);
   display.drawString(10, 128, String(millis()));
   display.display();
-  Serial.println(weight);
+  Serial.print("Weight: ");
+  Serial.print(weight);
+  Serial.print(" lbs");
   scale.power_down();             // put the ADC in sleep mode
   delay(5000);
   scale.power_up();
