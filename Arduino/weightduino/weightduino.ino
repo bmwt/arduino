@@ -37,7 +37,9 @@ void setup() {
   Serial.println(scale.get_units(5), 1);  // print the average of 5 readings from the ADC minus tare weight (not set) divided
             // by the SCALE parameter (not set yet)
 
-  scale.set_scale(2280.f);                      // this value is obtained by calibrating the scale with known weights; see the README for details
+//  scale.set_scale(2280.f);                      // this value is obtained by calibrating the scale with known weights; see the README for details
+  scale.set_scale(11400.f);                      // this value is obtained by calibrating the scale with known weights; see the README for details
+  // scale.set_scale(0.f);
   scale.tare();               // reset the scale to 0
 
   Serial.println("After setting up the scale:");
@@ -59,10 +61,10 @@ void setup() {
 }
 
 
-void displayWeight(int weight) {
+void displayWeight(float weight) {
    display.setFont(ArialMT_Plain_24);
    display.setTextAlignment(TEXT_ALIGN_LEFT);
-   String stringSuffix = " Units";
+   String stringSuffix = " lbs";
    String displayString = weight + stringSuffix;
    display.setFont(ArialMT_Plain_16);
    display.drawString(0, 0, "Weightduino 0.1");
@@ -74,7 +76,7 @@ void loop() {
   Serial.print("one reading:\t");
   Serial.print(scale.get_units(), 1);
   Serial.print("\t| average:\t");
-  int weight = scale.get_units(10);
+  float weight = scale.get_units(10);
   display.clear();
   displayWeight(weight);
   display.setTextAlignment(TEXT_ALIGN_RIGHT);
