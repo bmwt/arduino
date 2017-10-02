@@ -42,8 +42,7 @@ void setup() {
 void displayWeight(float weight) {
    // we only care about 1 digit after decimal
    String weightString = String(weight, 1);
-   String stringSuffix = " lbs";
-   String displayString = weightString + stringSuffix;
+   String displayString = weightString + " lbs";
    display.clear();
    display.setTextAlignment(TEXT_ALIGN_LEFT);
    display.setFont(ArialMT_Plain_16);
