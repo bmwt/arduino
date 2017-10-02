@@ -40,8 +40,10 @@ void setup() {
 }
 
 void displayWeight(float weight) {
+   // we only care about 1 digit after decimal
+   String weightString = String(weight, 1);
    String stringSuffix = " lbs";
-   String displayString = weight + stringSuffix;
+   String displayString = weightString + stringSuffix;
    display.clear();
    display.setTextAlignment(TEXT_ALIGN_LEFT);
    display.setFont(ArialMT_Plain_16);
@@ -55,7 +57,7 @@ void displayWeight(float weight) {
 
 void loop() {
   scale.power_up();
-  float weight = scale.get_units(10);
+  float weight = scale.get_units(20);
   displayWeight(abs(weight));
   scale.power_down();             // put the ADC in sleep mode
   delay(1000);
