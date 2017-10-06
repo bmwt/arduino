@@ -1,7 +1,23 @@
 #include "HX711.h"
 #include "SSD1306.h"
+#include "WiFi.h"
+#include "PubSubClient.h"
 HX711 scale;
 SSD1306  display(0x3c, 5, 4);
+
+const char* ssid = "peace";
+const char* password = "hailbrak";
+
+char* topic = "home_weightduino";
+char* server = "10.1.0.42";
+
+void callback(char* topic, byte* payload, unsigned int length) {
+  // handle message arrived
+}
+
+WiFiClient wifiClient;
+PubSubClient client(server, 1883, callback, wifiClient);
+
 
 void setup() {
   Serial.begin(115200);
@@ -37,6 +53,13 @@ void setup() {
   Serial.println(scale.get_value(5));
   Serial.print("raw ADC minus tare, divided by scale (average of 5): ");
   Serial.println(scale.get_units(5), 1);
+  Serial.println("Connecting to wifi");
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+       delay(500);
+       Serial.print(".");
+  }
+
 }
 
 void displayWeight(float weight) {
@@ -55,10 +78,30 @@ void displayWeight(float weight) {
 }
 
 void loop() {
+
+   
   scale.power_up();
   float weight = scale.get_units(20);
   displayWeight(abs(weight));
+  if (weight > 20)
+  { 
+    float weight_record = scale.get_units(20);
+    Serial.print("I would record: ");
+    Serial.println(weight_record);
+    if (!client.connected())
+      {
+      //client.connect("clientID", "mqtt_username", "mqtt_password");
+      client.connect("home-weightduino");
+      client.publish("home/weightduino/alive", "I'm alive!");
+      }
+    client.connect("home-weightduino");
+    client.publish("home/weightduino/weight", String(weight_record).c_str(), true);
+    displayWeight(abs(weight_record));
+    delay(10000);
+  }
+  
   scale.power_down();             // put the ADC in sleep mode
   delay(1000);
 }
+
 
